@@ -26,12 +26,12 @@
         const head = response.data.item.elements.head.value;
         const bodyText = response.data.item.elements.body.value;
         const js = response.data.item.elements.js.value[0].url;    
-        const css = response.data.item.elements.js.value[0].url;
+        const css = response.data.item.elements.css.value[0].url;
     
         document.body.innerHTML = bodyText;
         $('head').append(head);
         var link = document.createElement('link');
-        
+
         link.href = css;
         link.rel  = "stylesheet";
         link.type = "text/css";
