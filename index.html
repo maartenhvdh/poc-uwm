@@ -22,10 +22,10 @@
     
     // Processes the retrieved data and displays it on the page.
     function processData(response) {
-        const head = response.item.head.value;
-        const bodyText = response.item.body.value;
-        const js = response.item.js.value[0].url;    
-        const css = response.item.js.value[0].url;
+        const head = response.data.elements.item.head.value;
+        const bodyText = response.data.elements.item.body.value;
+        const js = response.data.elements.item.js.value[0].url;    
+        const css = response.data.elements.item.js.value[0].url;
     
         document.body.innerHTML = bodyText;
     }
