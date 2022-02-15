@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@kentico/kontent-delivery@11.0.0/dist/bundles/kontent-delivery.umd.min.js"></script>
+</head>
+<script>
+    // Initializes the Delivery JS SDK
+    const KontentDelivery = window['kontentDelivery'];
+    
+    // Tip: Change the project ID of the API call to yours to display your own content. Make sure the codenames still match.
+    const deliveryClient = new KontentDelivery.DeliveryClient({
+      projectId: '945a8ddc-8743-004e-67b0-7c17cac0e86b',
+    });
+    
+    // Retrieves the landing page from your project
+    deliveryClient
+      .item('html_page')
+      .elementsParameter(['body','js','css','head'])
+      .toPromise()
+      .then(response => {
+        processData(response)});
+    
+    // Processes the retrieved data and displays it on the page.
+    function processData(response) {
+        const head = response.item.head.value;
+        const bodyText = response.item.body.value;
+        const js = response.item.js.value[0].url;    
+        const css = response.item.js.value[0].url;
+    
+        document.body.innerHTML = bodyText;
+    }
+    </script>
+<body></body>
+</html>
